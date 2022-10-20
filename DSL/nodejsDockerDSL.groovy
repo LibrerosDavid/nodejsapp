@@ -14,7 +14,7 @@ job('Aplicacion Node.js Docker DSL') {
     }
     steps {
         dockerBuildAndPublish {
-            repositoryName('macloujulian/nodejsapp')
+            repositoryName('ebooksjoel/nodejsapp')
             tag('${GIT_REVISION,length=7}')
             registryCredentials('docker-hub')
             forcePull(false)
@@ -23,22 +23,5 @@ job('Aplicacion Node.js Docker DSL') {
         }
     }
     publishers {
-	slackNotifier {
-            notifyAborted(true)
-            notifyEveryFailure(true)
-            notifyNotBuilt(false)
-            notifyUnstable(false)
-            notifyBackToNormal(true)
-            notifySuccess(true)
-            notifyRepeatedFailure(false)
-            startNotification(false)
-            includeTestSummary(false)
-            includeCustomMessage(false)
-            customMessage(null)
-            sendAs(null)
-            commitInfoChoice('NONE')
-            teamDomain(null)
-            authToken(null)
-        }
     }
 }
