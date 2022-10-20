@@ -15,7 +15,4 @@ job('Aplicacion Node.js DSL') {
     steps {
         shell("npm install")
     }
-    publishers {
-	
-    }
 }
